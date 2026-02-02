@@ -4,3 +4,5 @@ cradle:
       - -isrc
       - -package
       - vector
+      - -package
+      - random

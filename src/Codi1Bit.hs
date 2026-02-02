@@ -2,8 +2,9 @@
 
 module Codi1Bit where
 
+import System.Random
 import Data.Word
-import Data.Bits
+-- import Data.Bits
 import qualified Data.Vector.Unboxed as U
 
 data NodeStates = Blank | Body | Axon | Dendrite 
@@ -23,14 +24,24 @@ Bit Layout:
 newtype Node = Node Word32
     deriving (Show, Eq)
 
+nodeRandom :: RandomGen g => g -> (Node, g)
+nodeRandom gen = let (w, gen') = genWord32 gen in (Node w, gen')
+
 data Grid = Grid
     { gridData :: !(U.Vector Node)
     , gridWidth :: !Int
     , gridHeight :: !Int
     } 
 
+{-| Initialize a grid with random nodes.-}
+gridRandom :: g -> Int -> Int -> (Grid, g)
+gridRandom seed width height = undefined
+
 gridIndex :: Grid -> Int -> Int -> Int
 gridIndex grid x y = y * gridWidth grid + x
 
-gridStep :: Grid -> Grid
-gridStep = undefined
+-- gridGrowStep :: Grid -> Grid
+-- gridGrowStep = undefined
+--
+-- gridEvalStep :: Grid -> Grid
+-- gridEvalStep = undefined
