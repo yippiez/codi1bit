@@ -2,3 +2,5 @@ cradle:
   direct:
     arguments:
       - -isrc
+      - -package
+      - vector
