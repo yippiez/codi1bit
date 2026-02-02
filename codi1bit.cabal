@@ -11,7 +11,7 @@ category:           Science
 build-type:         Simple
 
 common warnings
-    ghc-options: -Wall
+    ghc-options: -Wall -ignore-dot-ghci
 
 executable codi1bit
     import:           warnings
